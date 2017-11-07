@@ -1,14 +1,17 @@
 package gzdx.com.mytestapp;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
 
-import com.xrefresh_library.widget.OnXRefreshViewListener;
-import com.xrefresh_library.widget.XRefreshListView;
+import com.xrefresh_library.Refresh.widget.LoadMoreRecyclerView;
+import com.xrefresh_library.Refresh.widget.RefreshLoadMoreView;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
 
-    private XRefreshListView xRefreshListView;
+public class MainActivity extends Activity {
 
 
     @Override
@@ -16,12 +19,37 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        xRefreshListView.setOnXRefreshViewListener(new OnXRefreshViewListener(){
+        RefreshLoadMoreView loadMoreView = (RefreshLoadMoreView) findViewById(R.id.refresh_load_more);
+
+        final List<String> list=new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            list.add("第" + i + "条数据");
+        }
+
+        final TestAdapterRefresh adapterRefresh = new TestAdapterRefresh(this, list);
+        loadMoreView.setAdapter(adapterRefresh);
+        loadMoreView.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                super.onRefresh();
+                new Handler().post(new Runnable() {
+                    @Override
+                    public void run() {
+                        adapterRefresh.replace(list);
+                    }
+                });
             }
         });
 
+        loadMoreView.setOnLoadMoreListener(new LoadMoreRecyclerView.OnLoadMoreListener() {
+            @Override
+            public void onLoadMore() {
+                new Handler().post(new Runnable() {
+                    @Override
+                    public void run() {
+                        adapterRefresh.addAll(list);
+                    }
+                });
+            }
+        });
     }
 }

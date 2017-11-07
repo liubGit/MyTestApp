@@ -13,7 +13,7 @@ import android.widget.AbsListView.OnScrollListener;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.ScrollView;
 
-import com.xrefresh_library.base.BaseRecyclerAdapter;
+import com.xrefresh_library.base.BaseXRecyclerAdapter;
 import com.xrefresh_library.callback.IFooterCallBack;
 import com.xrefresh_library.listener.OnBottomLoadMoreTime;
 import com.xrefresh_library.listener.OnTopRefreshTime;
@@ -146,7 +146,7 @@ public class XRefreshContentView implements OnScrollListener, OnTopRefreshTime, 
         }
     }
 
-    public void onRecyclerViewScrolled(RecyclerView recyclerView, BaseRecyclerAdapter adapter, int dx, int dy, boolean force) {
+    public void onRecyclerViewScrolled(RecyclerView recyclerView, BaseXRecyclerAdapter adapter, int dx, int dy, boolean force) {
         if (mRecyclerViewScrollListener != null) {
             mRecyclerViewScrollListener.onScrolled(recyclerView, dx, dy);
         }
@@ -199,10 +199,10 @@ public class XRefreshContentView implements OnScrollListener, OnTopRefreshTime, 
         if (recyclerView.getAdapter() == null) {
             return;
         }
-        if (!(recyclerView.getAdapter() instanceof BaseRecyclerAdapter)) {
-            throw new RuntimeException("Recylerview的adapter请继承 BaseRecyclerAdapter");
+        if (!(recyclerView.getAdapter() instanceof BaseXRecyclerAdapter)) {
+            throw new RuntimeException("Recylerview的adapter请继承 BaseXRecyclerAdapter");
         }
-        final BaseRecyclerAdapter adapter = (BaseRecyclerAdapter) recyclerView.getAdapter();
+        final BaseXRecyclerAdapter adapter = (BaseXRecyclerAdapter) recyclerView.getAdapter();
         adapter.insideEnableFooter(mParent.getPullLoadEnable());
         recyclerView.removeOnScrollListener(mOnScrollListener);
         mOnScrollListener = new RecyclerView.OnScrollListener() {
@@ -230,7 +230,7 @@ public class XRefreshContentView implements OnScrollListener, OnTopRefreshTime, 
         initFooterCallBack(adapter, mParent);
     }
 
-    public void initFooterCallBack(BaseRecyclerAdapter adapter, XRefreshListView parent) {
+    public void initFooterCallBack(BaseXRecyclerAdapter adapter, XRefreshListView parent) {
         if (!mSilenceLoadMore) {
             if (adapter != null) {
                 View footerView = adapter.getCustomLoadMoreView();
@@ -249,7 +249,7 @@ public class XRefreshContentView implements OnScrollListener, OnTopRefreshTime, 
         }
     }
 
-    private void doSilenceLoadMore(BaseRecyclerAdapter adapter, RecyclerView.LayoutManager layoutManager) {
+    private void doSilenceLoadMore(BaseXRecyclerAdapter adapter, RecyclerView.LayoutManager layoutManager) {
         if (!mIsLoadingMore && isOnRecyclerViewBottom() && !hasLoadCompleted()) {
             if (mRefreshViewListener != null) {
                 mIsLoadingMore = true;
@@ -258,7 +258,7 @@ public class XRefreshContentView implements OnScrollListener, OnTopRefreshTime, 
         }
     }
 
-    private void doAutoLoadMore(BaseRecyclerAdapter adapter, RecyclerView.LayoutManager layoutManager) {
+    private void doAutoLoadMore(BaseXRecyclerAdapter adapter, RecyclerView.LayoutManager layoutManager) {
         if (!mIsLoadingMore && isOnRecyclerViewBottom() && mHideFooter) {
             startLoadMore(false, adapter, layoutManager);
         } else {
@@ -273,7 +273,7 @@ public class XRefreshContentView implements OnScrollListener, OnTopRefreshTime, 
         return false;
     }
 
-    private void doNormalLoadMore(BaseRecyclerAdapter adapter, RecyclerView.LayoutManager layoutManager) {
+    private void doNormalLoadMore(BaseXRecyclerAdapter adapter, RecyclerView.LayoutManager layoutManager) {
         if (!mIsLoadingMore && isOnRecyclerViewBottom() && mHideFooter) {
             if (!hasLoadCompleted()) {
                 doReadyState();
@@ -285,7 +285,7 @@ public class XRefreshContentView implements OnScrollListener, OnTopRefreshTime, 
         }
     }
 
-    public void startLoadMore(boolean silence, BaseRecyclerAdapter adapter, RecyclerView.LayoutManager layoutManager) {
+    public void startLoadMore(boolean silence, BaseXRecyclerAdapter adapter, RecyclerView.LayoutManager layoutManager) {
         if (!isFooterEnable() || mIsLoadingMore || mFooterCallBack == null) {
             return;
         }
@@ -348,7 +348,7 @@ public class XRefreshContentView implements OnScrollListener, OnTopRefreshTime, 
 
     public void notifyDatasetChanged() {
         if (child instanceof RecyclerView) {
-            final BaseRecyclerAdapter adapter = getRecyclerViewAdapter((RecyclerView) child);
+            final BaseXRecyclerAdapter adapter = getRecyclerViewAdapter((RecyclerView) child);
             if (adapter != null) {
                 adapter.notifyDataSetChanged();
             }
@@ -405,7 +405,7 @@ public class XRefreshContentView implements OnScrollListener, OnTopRefreshTime, 
                 RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
                 getRecyclerViewInfo(layoutManager);
 
-                BaseRecyclerAdapter adapter = getRecyclerViewAdapter(recyclerView);
+                BaseXRecyclerAdapter adapter = getRecyclerViewAdapter(recyclerView);
                 if (adapter != null) {
                     onRecyclerViewScrolled(recyclerView, adapter, 0, 0, true);
                 }
@@ -425,13 +425,13 @@ public class XRefreshContentView implements OnScrollListener, OnTopRefreshTime, 
         }
     }
 
-    private BaseRecyclerAdapter getRecyclerViewAdapter(RecyclerView recyclerView) {
+    private BaseXRecyclerAdapter getRecyclerViewAdapter(RecyclerView recyclerView) {
         if (recyclerView != null) {
             RecyclerView.Adapter adapter = recyclerView.getAdapter();
-            if (adapter instanceof BaseRecyclerAdapter) {
-                return (BaseRecyclerAdapter) adapter;
+            if (adapter instanceof BaseXRecyclerAdapter) {
+                return (BaseXRecyclerAdapter) adapter;
             } else {
-                throw new RuntimeException("Recylerview的adapter请继承 BaseRecyclerAdapter");
+                throw new RuntimeException("Recylerview的adapter请继承 BaseXRecyclerAdapter");
             }
         }
         return null;
@@ -445,7 +445,7 @@ public class XRefreshContentView implements OnScrollListener, OnTopRefreshTime, 
             if (hideFooter) {
                 if (isRecyclerView()) {
                     final RecyclerView recyclerView = (RecyclerView) child;
-                    final BaseRecyclerAdapter adapter = (BaseRecyclerAdapter) recyclerView.getAdapter();
+                    final BaseXRecyclerAdapter adapter = (BaseXRecyclerAdapter) recyclerView.getAdapter();
                     if (adapter == null) return;
                     addFooterView(false);
                     resetLayout();
@@ -473,7 +473,7 @@ public class XRefreshContentView implements OnScrollListener, OnTopRefreshTime, 
         }
     }
 
-    private void refreshAdapter(BaseRecyclerAdapter adapter, RecyclerView.LayoutManager manager) {
+    private void refreshAdapter(BaseXRecyclerAdapter adapter, RecyclerView.LayoutManager manager) {
         if (false && adapter != null && manager != null && !mRefreshAdapter && !hasLoadCompleted()) {
             if (!(manager instanceof GridLayoutManager)) {
                 View footerView = adapter.getCustomLoadMoreView();
@@ -599,7 +599,7 @@ public class XRefreshContentView implements OnScrollListener, OnTopRefreshTime, 
             return;
         }
         final RecyclerView recyclerView = (RecyclerView) child;
-        final BaseRecyclerAdapter adapter = getRecyclerViewAdapter(recyclerView);
+        final BaseXRecyclerAdapter adapter = getRecyclerViewAdapter(recyclerView);
         if (adapter != null && mFooterCallBack != null) {
             if (add) {
                 addingFooter = true;
@@ -639,7 +639,7 @@ public class XRefreshContentView implements OnScrollListener, OnTopRefreshTime, 
             dealRecyclerViewNotFullScreen();
         }
         if (isRecyclerView()) {
-            BaseRecyclerAdapter adapter = getRecyclerViewAdapter((RecyclerView) child);
+            BaseXRecyclerAdapter adapter = getRecyclerViewAdapter((RecyclerView) child);
             if (adapter != null) {
                 adapter.insideEnableFooter(enablePullLoad);
             }

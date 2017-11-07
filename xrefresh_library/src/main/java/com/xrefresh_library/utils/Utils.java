@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.xrefresh_library.base.BaseRecyclerAdapter;
+import com.xrefresh_library.base.BaseXRecyclerAdapter;
 
 import java.lang.reflect.Method;
 
@@ -55,7 +55,7 @@ public class Utils {
     }
 
     public static boolean isRecyclerViewFullscreen(RecyclerView viewGroup) {
-        if (viewGroup.getAdapter() instanceof BaseRecyclerAdapter) {
+        if (viewGroup.getAdapter() instanceof BaseXRecyclerAdapter) {
 //            int count = viewGroup.getChildCount();
 //
 //            View lastchild = viewGroup.getChildAt(count - 1);

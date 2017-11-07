@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <CheckBox
+        android:id="@+id/navigation_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@null"
+        android:drawableRight="@drawable/cb_black_navigation_selector"
+        android:textColor="@color/new_text_value_color"
+        android:textSize="18sp"
+        android:gravity="center_vertical"
+        android:drawablePadding="5dp"
+        android:text="私教订单" />
+
+</LinearLayout>

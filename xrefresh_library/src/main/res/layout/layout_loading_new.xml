@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/layout_status"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:clickable="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/iv_loading_status"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            tools:background="#f5f5" />
+
+        <TextView
+            android:id="@+id/tv_loading_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:textColor="#FF939A99"
+            android:textSize="13sp"
+            tools:text="当前网络繁忙，请稍后重试" />
+
+        <TextView
+            android:id="@+id/btn_href"
+            style="@style/Button_3_0_White"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="点击重试"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <android.support.v4.widget.Space
+            android:id="@+id/space_bottom_loading"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.2" />
+
+    </LinearLayout>
+</FrameLayout>

@@ -2,5 +2,197 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="global_padding">8dp</dimen>
+    <dimen name="loading_point_corner">2dp</dimen>
+    <dimen name="loading_point_distance">20dp</dimen>
+    <dimen name="loading_point_size">6dp</dimen>
+    <dimen name="loading_point_space">5dp</dimen>
+    <dimen name="refresh_trigger_offset">70dp</dimen>
+    <dimen name="status_bar_height">25dp</dimen>
+    <dimen name="toolbar_height">49dp</dimen>
+
+    <dimen name="h_10">10dp</dimen>
+    <dimen name="h_20">20dp</dimen>
+    <dimen name="h_25">25dp</dimen>
+    <dimen name="h_88">88dp</dimen>
+    <attr name="SwipeBackLayoutStyle" format="reference" />
+    <attr name="cropImageStyle" format="reference" />
+    <color name="banner_point_gray">#FF999999</color>
+    <color name="bg_secondary_normal">#FFFFFF</color>
+    <color name="bg_secondary_press">#F5F5F5</color>
+    <color name="bg_tab_normal">#00000000</color>
+    <color name="bg_tab_pressed">#00000000</color>
+    <color name="colorDisable3.0">#B9BEBD</color>
+    <color name="colorPrimary">#33C774</color>
+    <color name="colorPrimary3.0">#00B99E</color>
+    <color name="colorPrimaryDark">#1e9d33</color>
+    <color name="dark_gray_text">#6D6D6D</color>
+    <color name="dialog_background">#F0F5F8F8</color>
+    <color name="divider_line">#EEEEEE</color>
+    <color name="global_background">#F5F8F8</color>
+    <color name="grey_5c">#5C5C5C</color>
+    <color name="new_text_title_color">#666666</color>
+    <color name="new_text_value_color">#333333</color>
+    <color name="status_bar_endColor">#00000000</color>
+    <color name="status_bar_startColor">#59000000</color>
+    <color name="tab_text_color_normal">@color/dark_gray_text</color>
+    <color name="tab_text_color_selected">@color/white</color>
+    <color name="text_content_dark">#6A6D6C</color>
+    <color name="text_content_light">#939A99</color>
+    <color name="text_disable">#B9B9B9</color>
+    <color name="text_primary">#333333</color>
+    <color name="text_secondary">#666666</color>
+    <color name="text_sub">#B9BEBD</color>
+    <color name="text_title">#444A49</color>
+    <color name="toolbar_color">#FFFFFF</color>
+    <color name="white">#FFFFFF</color>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+
+
+    <dimen name="h_36">36dp</dimen>
+    <dimen name="lib_ui_f18">18sp</dimen>
+    <dimen name="lib_ui_h_8">8dp</dimen>
+    <dimen name="lib_ui_w_16">16dp</dimen>
+    <dimen name="lib_ui_w_30">30dp</dimen>
+
+    <dimen name="w_2">2dp</dimen>
+    <dimen name="w_5">5dp</dimen>
+    <dimen name="w_7.5">7.5dp</dimen>
+    <dimen name="w_10">10dp</dimen>
+    <dimen name="w_20">20dp</dimen>
+    <dimen name="w_40">40dp</dimen>
+    <dimen name="w_50">50dp</dimen>
+    <dimen name="w_16">16dp</dimen>
+    <dimen name="w_160">160dp</dimen>
+
+
+    <declare-styleable name="AppToolbar">
+        <attr name="tb_title" format="string|reference" />
+        <attr name="tb_text_menu_string" format="string|reference" />
+        <attr name="tb_src_menu_fir" format="reference" />
+        <attr name="tb_src_menu_sec" format="reference" />
+        <attr name="tb_enable_back" format="boolean" />
+        <attr name="tb_new_standard" format="boolean" />
+        <attr name="tb_src_menu_padding" format="dimension" />
+        <attr name="tb_transparent" format="boolean" />
+        <attr name="tb_src_menu_layout_padding" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="LoadMoreRecyclerView">
+        <attr name="recLayoutManager" format="enum">
+            <enum name="linear" value="0" />
+            <enum name="grid" value="1" />
+        </attr>
+        <attr name="recSpan" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="LoadingView">
+        <attr name="load_in_transparent" format="boolean" />
+        <attr name="load_new_standard" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="RefreshLoadMoreView">
+        <attr name="defaultDivider" format="boolean" />
+        <attr name="rlm_new_standard" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="SwipeBackLayout">
+        <attr name="edge_size" format="dimension" value="300.0dp" />
+        <attr name="edge_flag">
+            <enum name="left" value="0" />
+            <enum name="right" value="1" />
+            <enum name="bottom" value="2" />
+            <enum name="all" value="3" />
+        </attr>
+        <attr name="shadow_left" format="reference" />
+        <attr name="shadow_right" format="reference" />
+        <attr name="shadow_bottom" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="SwipeRefreshView">
+        <attr name="scrollableChildId" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="itemSelectView">
+        <attr name="itemSelectViewTitle" format="string" />
+        <attr name="itemSelectViewIconRes" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="passwordView">
+        <attr name="textColor" format="color|reference" />
+        <attr name="textSize" format="dimension" />
+        <attr name="lineColor" format="color" />
+        <attr name="gridColor" format="color" />
+        <attr name="lineWidth" format="dimension" />
+        <attr name="passwordLength" format="integer" />
+        <attr name="passwordTransformation" format="string" />
+        <attr name="passwordType" format="enum">
+            <enum name="numberPassword" value="0" />
+            <enum name="textPassword" value="1" />
+            <enum name="textVisiblePassword" value="2" />
+            <enum name="textWebPassword" value="3" />
+        </attr>
+    </declare-styleable>
+
+
+    <style name="Button_3_0_White">
+        <item name="android:background">@drawable/lib_btn_white_3_0</item>
+        <item name="android:textColor">@color/tv_3_0_selector</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LibUiCancelButton" parent="LibUiNewButtonStyle">
+        <item name="android:background">@drawable/btn_gray_3_0</item>
+        <item name="android:textColor">@color/text_content_light</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="LibUiNewButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="LibUiAcceptButton" parent="LibUiNewButtonStyle">
+        <item name="android:background">@drawable/btn_gray_3_0</item>
+        <item name="android:textColor">@color/text_title</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Layout" />
+
+    <style name="Layout.Clickable">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:clickable">true</item>
+        <item name="android:background">@drawable/bg_white_gray_selector</item>
+    </style>
+
+    <style name="TextView" />
+
+    <style name="TextView.Grey_14sp">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#5C5C5C</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextView.Grey_14sp.inputView">
+        <item name="android:layout_weight">3.2</item>
+        <item name="android:width">0dp</item>
+        <item name="android:layout_height">@dimen/h_36</item>
+        <item name="android:layout_margin">@dimen/w_5</item>
+        <item name="android:paddingLeft">@dimen/global_padding</item>
+        <item name="android:paddingRight">@dimen/global_padding</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+
+    <string name="accept">确定</string>
+    <string name="cancel">取消</string>
+    <string name="net_error">当前网络不可用，请检查网络后重试</string>
+    <string name="net_failure">当前网络繁忙，请稍后重试</string>
+    <string name="net_no_data">没有数据</string>
+    <string name="net_no_net">当前网络不可用，请检查网络后重试</string>
+    <string name="net_time_out">当前网络繁忙，请稍后重试</string>
 
 </resources>

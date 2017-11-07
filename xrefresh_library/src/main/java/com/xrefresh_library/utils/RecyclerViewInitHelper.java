@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.xrefresh_library.R;
 import com.xrefresh_library.widget.GridSpacingItemDecoration;
-import com.xrefresh_library.widget.LoadMoreGridLayoutManager;
+import com.xrefresh_library.Refresh.LoadMoreGridLayoutManager;
 
 
 /**

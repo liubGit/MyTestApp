@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/tv_title_tab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:paddingLeft="6dp"
+        tools:text="asdf"
+        android:paddingRight="6dp"
+        android:textColor="@color/text_secondary"
+        android:textSize="18sp" />
+
+    <com.gzdxjk.healthmall_android_library.widget.RedPointView
+        android:id="@+id/red_sign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tv_title_tab"
+        android:layout_marginLeft="2dp"
+        android:layout_toRightOf="@id/tv_title_tab" />
+</RelativeLayout>
