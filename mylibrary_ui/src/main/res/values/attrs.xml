@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HeaderViewPager">
+        <attr name="hvp_topOffset" format="dimension" />
+        <attr name="hvp_headerLayout" format="reference" />
+        <attr name="hvp_floatLayout" format="reference" />
+    </declare-styleable>
+</resources>

@@ -6,4 +6,10 @@
         <attr name="autoRefresh" format="boolean" />
         <attr name="autoLoadMore" format="boolean" />
     </declare-styleable>
+
+    <declare-styleable name="HeaderViewPager">
+        <attr name="hvp_topOffset" format="dimension" />
+        <attr name="hvp_headerLayout" format="reference" />
+        <attr name="hvp_floatLayout" format="reference" />
+    </declare-styleable>
 </resources>
