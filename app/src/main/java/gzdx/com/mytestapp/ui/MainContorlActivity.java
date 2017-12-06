@@ -1,13 +1,10 @@
 package gzdx.com.mytestapp.ui;
 
 import android.os.Bundle;
-import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,13 +14,14 @@ import butterknife.ButterKnife;
 import gzdx.com.mytestapp.R;
 import gzdx.com.mytestapp.ui.home.HomeUiFragment;
 import gzdx.com.mytestapp.ui.me.MeFragment;
+import gzdx.com.mytestapp.ui.widget.TabHome;
 
 public class MainContorlActivity extends AppCompatActivity {
 
     @BindView(R.id.viewpager)
     ViewPager mViewpager;
-    @BindView(R.id.rg_tab)
-    RadioGroup mRgTab;
+    @BindView(R.id.tabhome)
+    TabHome mTabHome;
 
     private List<Fragment> fragmentList;
 
@@ -34,7 +32,8 @@ public class MainContorlActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         initView();
 
-        checkChanged(R.id.rb_tab_ui);
+        //初始界面
+        checkButton(TabHome.TYPE_TAB_ME);
     }
 
     private void initView() {
@@ -54,7 +53,7 @@ public class MainContorlActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-                pageChecked(position);
+                checkButton(position);
             }
 
             @Override
@@ -62,53 +61,17 @@ public class MainContorlActivity extends AppCompatActivity {
 
             }
         });
-
-        mRgTab.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        mTabHome.setOnCheckedChangeListener(new TabHome.onCheckChange() {
             @Override
-            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
-                checkChanged(checkedId);
+            public void showFragmentId(int id) {
+                mViewpager.setCurrentItem(id);
             }
         });
     }
 
-    private void checkChanged(int checkedId) {
-        int currentId = 0;
-        switch (checkedId) {
-            case R.id.rb_tab_ui:
-                currentId = 0;
-                break;
-            case R.id.rb_tab_frame:
-                currentId = 1;
-                break;
-            case R.id.rb_tab_find:
-                currentId = 2;
-                break;
-            case R.id.rb_tab_me:
-                currentId = 3;
-                break;
-        }
-        mRgTab.check(checkedId);
-        mViewpager.setCurrentItem(currentId);
-    }
-
-    private void pageChecked(int position) {
-        switch (position) {
-            case 0:
-                mRgTab.check(R.id.rb_tab_ui);
-                break;
-            case 1:
-                mRgTab.check(R.id.rb_tab_frame);
-                break;
-            case 2:
-                mRgTab.check(R.id.rb_tab_find);
-                break;
-            case 3:
-                mRgTab.check(R.id.rb_tab_me);
-                break;
-            default:
-                mRgTab.check(R.id.rb_tab_ui);
-                break;
-        }
+    public void checkButton(int checkId) {
+        mTabHome.onCheck(checkId);
+        mViewpager.setCurrentItem(checkId);
     }
 
     public FragmentPagerAdapter fragmentPageAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
