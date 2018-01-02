@@ -5,4 +5,10 @@
         <attr name="hvp_headerLayout" format="reference" />
         <attr name="hvp_floatLayout" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="AppToolbar">
+        <attr name="tb_title" format="string|reference"/>
+        <attr name="tb_enable_back" format="boolean"/>
+        <attr name="tb_menue_title" format="reference"/>
+    </declare-styleable>
 </resources>

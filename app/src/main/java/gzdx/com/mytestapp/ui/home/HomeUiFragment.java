@@ -1,10 +1,14 @@
 package gzdx.com.mytestapp.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.View;
+import android.widget.Toast;
+
+import com.example.mylibrary_ui.widget.AppToolbar;
 
 import gzdx.com.mytestapp.R;
+import gzdx.com.mytestapp.ui.bluetooth.BluetoothActivity;
 import gzdx.com.mytestapp.ui.widget.base.BaseFragement;
 
 /**
@@ -12,6 +16,7 @@ import gzdx.com.mytestapp.ui.widget.base.BaseFragement;
  */
 
 public class HomeUiFragment extends BaseFragement {
+
     @Override
     public int setContextView() {
         return R.layout.layout_home_ui;
@@ -20,5 +25,20 @@ public class HomeUiFragment extends BaseFragement {
     @Override
     protected void bindView(View view, Bundle savedInstanceState) {
 
+        view.findViewById(R.id.btn_tablayout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), BluetoothActivity.class));
+            }
+        });
+
+        AppToolbar toolbar = (AppToolbar) view.findViewById(R.id.toolbar);
+
+        toolbar.setTextMenu("点我", new AppToolbar.OnTextMenuClickListener() {
+            @Override
+            public void onClick(String var1) {
+                Toast.makeText(getContext(), "点我了！！！", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

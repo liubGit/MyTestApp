@@ -33,7 +33,7 @@ public class MainContorlActivity extends AppCompatActivity {
         initView();
 
         //初始界面
-        checkButton(TabHome.TYPE_TAB_ME);
+        checkButton(TabHome.TYPE_TAB_HOME);
     }
 
     private void initView() {
