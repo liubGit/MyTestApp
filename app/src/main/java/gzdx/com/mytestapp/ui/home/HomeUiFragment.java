@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.library1.TestLibraryActivity;
+import com.example.library2.TestLibrary2Activity;
 import com.example.mylibrary_ui.widget.AppToolbar;
 
 import gzdx.com.mytestapp.R;
@@ -29,6 +31,13 @@ public class HomeUiFragment extends BaseFragement {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), BluetoothActivity.class));
+            }
+        });
+
+        view.findViewById(R.id.btn_window_view).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), TestLibrary2Activity.class));
             }
         });
 

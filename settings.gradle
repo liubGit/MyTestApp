@@ -1,1 +1,1 @@
-include ':app', ':xrefresh_library', ':mylibrary_ui'
+include ':app', ':xrefresh_library', ':mylibrary_ui', ':router', ':library1', ':library2', ':common'

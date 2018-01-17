@@ -9,7 +9,11 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/common" />
+            <option value="$PROJECT_DIR$/library1" />
+            <option value="$PROJECT_DIR$/library2" />
             <option value="$PROJECT_DIR$/mylibrary_ui" />
+            <option value="$PROJECT_DIR$/router" />
             <option value="$PROJECT_DIR$/xrefresh_library" />
           </set>
         </option>

@@ -29,6 +29,11 @@
                 android:gravity="center"
                 android:text="蓝牙搜索"
                 android:textColor="@color/white" />
+            <Button
+                android:id="@+id/btn_window_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="路由跳转"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
