@@ -29,11 +29,30 @@
                 android:gravity="center"
                 android:text="蓝牙搜索"
                 android:textColor="@color/white" />
+
             <Button
                 android:id="@+id/btn_window_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="路由跳转"/>
+                android:text="路由跳转" />
+
+            <TextView
+                android:id="@+id/tv_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:singleLine="true"
+                android:scrollHorizontally="true"
+                android:text="23跑马灯1-跑马灯2-跑马灯3-跑马灯1-跑马灯2-跑马灯3-跑马灯1-跑马灯2-跑马灯3-跑马灯1-跑马灯2-跑马灯3-跑马灯1-跑马灯2-跑马灯3-跑马灯1-跑马灯2-跑马灯3-跑马灯1-跑马灯2-跑马灯3-跑马灯1-跑马灯2-跑马灯ssssss" />
+
+            <Button
+                android:id="@+id/btn_cap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="扫一扫"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

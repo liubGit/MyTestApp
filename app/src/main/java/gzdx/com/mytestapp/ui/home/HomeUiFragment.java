@@ -3,9 +3,9 @@ package gzdx.com.mytestapp.ui.home;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.library1.TestLibraryActivity;
 import com.example.library2.TestLibrary2Activity;
 import com.example.mylibrary_ui.widget.AppToolbar;
 
@@ -40,7 +40,6 @@ public class HomeUiFragment extends BaseFragement {
                 startActivity(new Intent(getActivity(), TestLibrary2Activity.class));
             }
         });
-
         AppToolbar toolbar = (AppToolbar) view.findViewById(R.id.toolbar);
 
         toolbar.setTextMenu("点我", new AppToolbar.OnTextMenuClickListener() {
@@ -50,4 +49,5 @@ public class HomeUiFragment extends BaseFragement {
             }
         });
     }
+
 }
